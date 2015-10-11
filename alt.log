@@ -1,0 +1,38 @@
+
+#sdk/evil3496428479.sdk
+- - - - - - - 3 - 
+- - - - - - 1 2 6 
+- - - 2 4 9 - 8 - 
+- 6 - - - 7 2 - - 
+8 - - - 3 - - - 5 
+- - 5 4 - - - 1 - 
+- 2 - 8 9 3 - - - 
+9 5 7 - - - - - - 
+- 8 - - - - - - - 
+25 cells given
+
+tactic_6_alternative_ok_cells start.....
+found-2 7, 25
+./alternative.rb:86:in `add'
+./alternative.rb:67:in `register'
+./alternative.rb:66:in `register'
+./alternative.rb:56:in `register'
+./alternative.rb:55:in `register'
+./alternative.rb:149:in `tactic_6_alternative_ok_cells'
+./tactic.rb:51:in `execute'
+./tactic.rb:48:in `execute'
+sudoku.rb:62
+sudoku.rb:39
+        8 cells done: 
+found-2 7, 25
+./alternative.rb:86:in `add'
+./alternative.rb:67:in `register'
+./alternative.rb:66:in `register'
+./alternative.rb:56:in `register'
+./alternative.rb:55:in `register'
+./alternative.rb:149:in `tactic_6_alternative_ok_cells'
+./tactic.rb:51:in `execute'
+./tactic.rb:48:in `execute'
+sudoku.rb:62
+sudoku.rb:39
+"ALT:[(0,0)(0,1)(0,5)[[2, 5, 7])], (0,0)(0,1)(0,5)[[2, 5, 7])]]"

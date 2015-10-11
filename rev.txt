@@ -1,0 +1,28 @@
+sudoku
+-----------------------------------------------------------------------
+#rev2: Tactic Version
+-----------------------------------------------------------------------
+#rev2a: Tactic1 - Tactic6
+  [Comments]
+  [Known bug] different result with/without -trio option => fixed in rev2b
+  
+  $ruby sudoku.rb -sr -trio ../sdk/sdk/evil7310846494.sdk     => incomplete
+  $ruby sudoku.rb -sr ../sdk/sdk/evil7310846494.sdk       => solved!
+  
+  $ruby sudoku.rb -sr -trio ../sdk/evil4030792854.sdk     => solved!
+  $ruby sudoku.rb -sr ../sdk/evil4030792854.sdk     => incomplete
+  
+
+-----------------------------------------------------------------------
+#rev2b: Tactic7 added / new command line options
+  [Comments] can't solve sdk/evil3496428479.sdk 
+  [Options] -t1 -t2 ...   use specified Tactic (can specify multiple tactics)
+            -d1 -d2 ...   not use specified Tactic
+            -p            use Tactics parallel (t1,t2,t3... t1,t2,t3...)
+            -sr           display result only
+            -sm           display message only
+            -s            silent (no display)
+            -solver       use solver (no Tactics)
+            -a            do another attempt (when used with -solver)
+            
+            

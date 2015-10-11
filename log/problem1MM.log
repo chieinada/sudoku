@@ -1,0 +1,306 @@
+I found a solution!!!
+
+3 1 7 2 8 4 6 5 9 
+4 9 2 3 5 6 1 7 8 
+6 5 8 7 1 9 4 3 2 
+2 8 4 6 9 3 5 1 7 
+1 7 5 8 4 2 9 6 3 
+9 3 6 1 7 5 8 2 4 
+7 4 3 5 6 8 2 9 1 
+8 6 1 9 2 7 3 4 5 
+5 2 9 4 3 1 7 8 6 
+
+40819 of wrong attempts
+
+I'll continue to find another solution...
+I found another solution!!!
+
+3 1 7 2 8 4 6 5 9 
+4 9 8 3 5 6 1 7 2 
+6 5 2 7 1 9 4 3 8 
+2 8 4 6 9 3 5 1 7 
+1 7 5 8 4 2 9 6 3 
+9 3 6 1 7 5 8 2 4 
+7 4 3 5 6 8 2 9 1 
+8 6 1 9 2 7 3 4 5 
+5 2 9 4 3 1 7 8 6 
+
+42891 of wrong attempts
+I tried 2 times
+
+I'll continue to find another solution...
+I found another solution!!!
+
+4 1 7 2 8 3 6 5 9 
+3 9 2 4 5 6 1 7 8 
+6 5 8 7 1 9 4 3 2 
+2 3 4 8 9 1 5 6 7 
+1 8 5 6 4 7 9 2 3 
+9 7 6 3 2 5 8 1 4 
+7 4 3 5 6 8 2 9 1 
+8 6 1 9 7 2 3 4 5 
+5 2 9 1 3 4 7 8 6 
+
+54560 of wrong attempts
+I tried 3 times
+
+I'll continue to find another solution...
+I found another solution!!!
+
+4 1 7 2 8 3 6 5 9 
+3 9 2 4 5 6 1 7 8 
+6 5 8 7 1 9 4 3 2 
+9 3 4 8 2 1 5 6 7 
+1 8 5 6 4 7 9 2 3 
+2 7 6 3 9 5 8 1 4 
+7 4 3 5 6 8 2 9 1 
+8 6 1 9 7 2 3 4 5 
+5 2 9 1 3 4 7 8 6 
+
+55142 of wrong attempts
+I tried 4 times
+
+I'll continue to find another solution...
+I found another solution!!!
+
+4 1 7 2 8 3 6 5 9 
+3 9 8 4 5 6 1 7 2 
+6 5 2 7 1 9 4 3 8 
+2 3 4 8 9 1 5 6 7 
+1 8 5 6 4 7 9 2 3 
+9 7 6 3 2 5 8 1 4 
+7 4 3 5 6 8 2 9 1 
+8 6 1 9 7 2 3 4 5 
+5 2 9 1 3 4 7 8 6 
+
+56342 of wrong attempts
+I tried 5 times
+
+I'll continue to find another solution...
+I found another solution!!!
+
+4 1 7 2 8 3 6 5 9 
+3 9 8 4 5 6 1 7 2 
+6 5 2 7 1 9 4 3 8 
+9 3 4 8 2 1 5 6 7 
+1 8 5 6 4 7 9 2 3 
+2 7 6 3 9 5 8 1 4 
+7 4 3 5 6 8 2 9 1 
+8 6 1 9 7 2 3 4 5 
+5 2 9 1 3 4 7 8 6 
+
+56924 of wrong attempts
+I tried 6 times
+
+I'll continue to find another solution...
+I found another solution!!!
+
+6 1 7 2 8 3 4 5 9 
+3 9 2 4 5 6 1 7 8 
+4 5 8 7 1 9 6 3 2 
+2 3 4 8 9 1 5 6 7 
+1 8 5 6 4 7 9 2 3 
+9 7 6 3 2 5 8 1 4 
+7 4 3 5 6 8 2 9 1 
+8 6 1 9 7 2 3 4 5 
+5 2 9 1 3 4 7 8 6 
+
+72609 of wrong attempts
+I tried 7 times
+
+I'll continue to find another solution...
+I found another solution!!!
+
+6 1 7 2 8 3 4 5 9 
+3 9 2 4 5 6 1 7 8 
+4 5 8 7 1 9 6 3 2 
+9 3 4 8 2 1 5 6 7 
+1 8 5 6 4 7 9 2 3 
+2 7 6 3 9 5 8 1 4 
+7 4 3 5 6 8 2 9 1 
+8 6 1 9 7 2 3 4 5 
+5 2 9 1 3 4 7 8 6 
+
+73191 of wrong attempts
+I tried 8 times
+
+I'll continue to find another solution...
+I found another solution!!!
+
+6 1 7 2 8 3 4 5 9 
+3 9 8 4 5 6 1 7 2 
+4 5 2 7 1 9 6 3 8 
+2 3 4 8 9 1 5 6 7 
+1 8 5 6 4 7 9 2 3 
+9 7 6 3 2 5 8 1 4 
+7 4 3 5 6 8 2 9 1 
+8 6 1 9 7 2 3 4 5 
+5 2 9 1 3 4 7 8 6 
+
+74072 of wrong attempts
+I tried 9 times
+
+I'll continue to find another solution...
+I found another solution!!!
+
+6 1 7 2 8 3 4 5 9 
+3 9 8 4 5 6 1 7 2 
+4 5 2 7 1 9 6 3 8 
+9 3 4 8 2 1 5 6 7 
+1 8 5 6 4 7 9 2 3 
+2 7 6 3 9 5 8 1 4 
+7 4 3 5 6 8 2 9 1 
+8 6 1 9 7 2 3 4 5 
+5 2 9 1 3 4 7 8 6 
+
+74654 of wrong attempts
+I tried 10 times
+
+I'll continue to find another solution...
+I found another solution!!!
+
+7 1 2 3 8 4 6 5 9 
+4 9 3 2 5 6 1 7 8 
+6 5 8 7 1 9 4 3 2 
+2 8 4 6 9 3 5 1 7 
+1 7 5 8 4 2 9 6 3 
+9 3 6 1 7 5 8 2 4 
+3 4 7 5 6 8 2 9 1 
+8 6 1 9 2 7 3 4 5 
+5 2 9 4 3 1 7 8 6 
+
+190854 of wrong attempts
+I tried 11 times
+
+I'll continue to find another solution...
+I found another solution!!!
+
+7 1 2 3 8 4 6 5 9 
+4 9 3 5 2 6 1 7 8 
+6 5 8 7 1 9 4 3 2 
+2 8 4 9 6 3 5 1 7 
+1 7 5 8 4 2 9 6 3 
+9 3 6 1 7 5 8 2 4 
+3 4 7 6 5 8 2 9 1 
+8 6 1 2 9 7 3 4 5 
+5 2 9 4 3 1 7 8 6 
+
+194718 of wrong attempts
+I tried 12 times
+
+I'll continue to find another solution...
+I found another solution!!!
+
+7 1 2 3 8 4 6 5 9 
+4 9 3 5 2 6 1 7 8 
+6 5 8 7 1 9 4 3 2 
+9 8 4 1 6 3 5 2 7 
+1 7 5 8 4 2 9 6 3 
+2 3 6 9 7 5 8 1 4 
+3 4 7 6 5 8 2 9 1 
+8 6 1 2 9 7 3 4 5 
+5 2 9 4 3 1 7 8 6 
+
+195518 of wrong attempts
+I tried 13 times
+
+I'll continue to find another solution...
+I found another solution!!!
+
+7 1 2 4 8 3 6 5 9 
+4 9 3 2 5 6 1 7 8 
+6 5 8 7 1 9 4 3 2 
+2 3 4 8 9 1 5 6 7 
+1 8 5 6 4 7 9 2 3 
+9 7 6 3 2 5 8 1 4 
+3 4 7 5 6 8 2 9 1 
+8 6 1 9 7 2 3 4 5 
+5 2 9 1 3 4 7 8 6 
+
+198001 of wrong attempts
+I tried 14 times
+
+I'll continue to find another solution...
+I found another solution!!!
+
+7 1 2 4 8 3 6 5 9 
+4 9 3 2 5 6 1 7 8 
+6 5 8 7 1 9 4 3 2 
+9 3 4 8 2 1 5 6 7 
+1 8 5 6 4 7 9 2 3 
+2 7 6 3 9 5 8 1 4 
+3 4 7 5 6 8 2 9 1 
+8 6 1 9 7 2 3 4 5 
+5 2 9 1 3 4 7 8 6 
+
+198758 of wrong attempts
+I tried 15 times
+
+I'll continue to find another solution...
+I found another solution!!!
+
+7 1 2 4 8 3 6 5 9 
+4 9 3 5 2 6 1 7 8 
+6 5 8 7 1 9 4 3 2 
+9 3 4 8 6 1 5 2 7 
+1 8 5 2 4 7 9 6 3 
+2 7 6 3 9 5 8 1 4 
+3 4 7 6 5 8 2 9 1 
+8 6 1 9 7 2 3 4 5 
+5 2 9 1 3 4 7 8 6 
+
+202067 of wrong attempts
+I tried 16 times
+
+I'll continue to find another solution...
+I found another solution!!!
+
+7 1 2 4 8 3 6 5 9 
+4 9 3 5 2 6 1 7 8 
+6 5 8 7 1 9 4 3 2 
+9 8 4 3 6 1 5 2 7 
+1 7 5 8 4 2 9 6 3 
+2 3 6 9 7 5 8 1 4 
+3 4 7 6 5 8 2 9 1 
+8 6 1 2 9 7 3 4 5 
+5 2 9 1 3 4 7 8 6 
+
+202269 of wrong attempts
+I tried 17 times
+
+I'll continue to find another solution...
+I found another solution!!!
+
+7 1 3 2 8 4 6 5 9 
+4 9 2 3 5 6 1 7 8 
+6 5 8 7 1 9 4 3 2 
+2 8 4 6 9 3 5 1 7 
+1 7 5 8 4 2 9 6 3 
+9 3 6 1 7 5 8 2 4 
+3 4 7 5 6 8 2 9 1 
+8 6 1 9 2 7 3 4 5 
+5 2 9 4 3 1 7 8 6 
+
+205259 of wrong attempts
+I tried 18 times
+
+I'll continue to find another solution...
+I found another solution!!!
+
+7 1 3 2 8 4 6 5 9 
+4 9 8 3 5 6 1 7 2 
+6 5 2 7 1 9 4 3 8 
+2 8 4 6 9 3 5 1 7 
+1 7 5 8 4 2 9 6 3 
+9 3 6 1 7 5 8 2 4 
+3 4 7 5 6 8 2 9 1 
+8 6 1 9 2 7 3 4 5 
+5 2 9 4 3 1 7 8 6 
+
+207805 of wrong attempts
+I tried 19 times
+
+I'll continue to find another solution...
+I couldn't find a solution. I was back to the beginning.
+214782 of wrong attempts
+

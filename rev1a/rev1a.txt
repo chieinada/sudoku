@@ -1,0 +1,99 @@
+###Sudoku rev1a:  Mar 19 2007
+    MarkedArray Version. Bug Fixed. Mar-18-2007
+#solver.rb:
+  [Changed] push given-cells in Solver::@history and stop skipping 
+         given-cells after @history.pop 
+  [Bug Fixed]
+       -Problem: Only 19 solutions of problem1M.sdk, out of 48, were found.
+       -Fixed: After the first solution was found, call SolverCell::clear
+            must be called for the last cell (8,8) in Solver::go_backward.
+#problem.rb:
+  [Added] Problem::diff(other), to_s
+  [Interface Changed] 
+        - Problem.read() create new Problem object.
+        - remove instance variable: Problem::@fname, 
+           and store fname in @comments
+----+---+---------------------------------
+test —v	class
+----+---+---------------------------------
+		class Board
+----+---+---------------------------------
+		@cells, @rows, @columns, @boxes
+	v	#initialize
+		#load_problem(problem) -> nil
+		#to_problem => problem
+		#clear
+		#clear!
+		#inspect
+		#to_s
+		#cell(x,y)
+		#inspect_cell(x,y)
+		class NineNum
+		@cells
+	v	#initialize
+	v	#to_s
+	v	#have_it?(new_num)
+	v	#<<(new_cell)
+----+---+---------------------------------
+		class Cell
+----+---+---------------------------------
+		@num, @given, @row, @column, @box
+v		#initialize
+		#set_row
+		#set_column
+		#set_box
+v	need?	#given? => true/false
+v		#given_to_s => 'f' or 't'
+v		#inspect => String
+v		#to_s => String
+-		#num => return: @num
+v		#clear => nil/self
+v		#clea‚’! => self
+v		#set(num, given=false) => self or nil
+	need?	#self.inspect_cells(cells)
+	need?	#self.cells_to_s(cells)
+----+---+---------------------------------
+----+---+---------------------------------
+		MarkedArray < Array
+----+---+---------------------------------
+		#initialize(arr)
+		#inspect(sup=nil)
+		#to_s
+		#rewind
+	need?	#first
+	need?	#current
+		#next -> self[@marker] or nil (reached to the end
+		#prev -> self[@marker] or nil (reached to the beginning
+----+---+---------------------------------
+		Solver < MarkedArray
+----+---+---------------------------------
+		@bd, @history, @problem, @talkative
+		#initialize(fname)
+		#inspect_bd
+		#inspect(sup=false)
+		#history
+		#go_backward =>true/false
+		#go_forward
+		#solve
+----+---+---------------------------------
+		SolverCell < MarkedArray
+----+---+---------------------------------
+		@bd, @x, @y
+		#given?
+		#clear 
+		#to_s
+		#items_to_try
+		#try
+----+---+---------------------------------
+		History < Array
+----+---+---------------------------------
+		@poped_count
+		#pop
+		#count
+		Problem < Array
+		@fname, @comments
+		#initialize(arr, comments=nil)
+		#to_s
+		#diff(other) => String
+		#attr_reader :comments
+		#Problem.read(fname)@=> Problem obj
