@@ -1,4 +1,4 @@
-Solve 9x9 Sudoku problem(s) in *.sdk file(s)                        
+Solve 9x9 Sudoku problem(s) in *.sdk file(s)  
  >>ruby sudoku.rb [FILE]...                                      
     
  *.sdk files are located in ./sdk/*.sdk
@@ -12,4 +12,5 @@ Solve 9x9 Sudoku problem(s) in *.sdk file(s)
  - - 9 - - 8 - 4 - 
  - 8 4 - 9 - - - 7 
  - - - - 5 3 - - - 
-  
+
+ 
