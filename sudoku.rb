@@ -28,7 +28,7 @@ ARGV.each do |arg|
     end
     sv = Solver.new(fname)    
     tc = Tactics.new(sv.bd)
-    tactics = tc.tactics
+#    tactics = tc.tactics  #tactics is no longer refered
 
     tc.disable(7)
     tc.disable(8)
