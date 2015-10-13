@@ -15,8 +15,10 @@
 # - - - - 5 3 - - - 
 #  
 ####################################################################
-require_relative 'solver'
+require_relative 'board'
+require_relative 'problem'
 require_relative 'tactic'
+
 
 ARGV.each do |arg|
     if arg =~ /^-/
@@ -26,9 +28,11 @@ ARGV.each do |arg|
       puts "Sudoku: loading SDK file: #{arg}..."
       fname = arg
     end
-    sv = Solver.new(fname)    
-    tc = Tactics.new(sv.bd)
-#    tactics = tc.tactics  #tactics is no longer refered
+    board = Board.new
+    board.load_problem(Problem.read(fname))
+
+
+    tc = Tactics.new(board)
 
     tc.disable(7)
     tc.disable(8)
@@ -47,7 +51,7 @@ ARGV.each do |arg|
     
     #display results
     puts  
-    puts sv.bd.to_s
+    puts board.to_s
     if tc.solved?
       puts "\nsolved! I filled #{done.length} cells."
     else 
