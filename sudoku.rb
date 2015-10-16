@@ -56,7 +56,7 @@ ARGV.each do |arg|
       puts "\nsolved! I filled #{done.length} cells."
     else 
       puts "\nXXXXX incomplete. I filled #{done.length} cells. "
-      puts "#{sv.bd.empty_cells.length} cells remains"
+      puts "#{board.empty_cells.length} cells remains"
     end
     puts
     puts
