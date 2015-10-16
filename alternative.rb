@@ -24,7 +24,7 @@ class Alternative
         end
     end
     def make_cells_to_exclude
-        Board::NumRange.each do |num|
+        Board::NUM_RANGE.each do |num|
             cells_to_exclude = []
             trio_cells_to_exclude = []
             @bd.nine_nums.each do |nine_num| 
@@ -52,7 +52,7 @@ class Alternative
     def register(bd)
         @bd = bd############
         make_cells_to_exclude if !@alternatives.keys.empty?
-        Board::NumRange.each do |num|
+        Board::NUM_RANGE.each do |num|
             bd.nine_nums.each do |nine_num| 
                 ok_cells = nine_num.cells_can_be(num) - cells_to_exclude(num)
                 if ok_cells.length == 1
@@ -140,7 +140,7 @@ else
         puts"end"
 end
         alternative.make_cells_to_exclude
-        Board::NumRange.each do |num|
+        Board::NUM_RANGE.each do |num|
             @bd.nine_nums.each do |nine_num|
                 next if nine_num.have?(num)
                 ok_cells = nine_num.cells_can_be(num) - alternative.cells_to_exclude(num)
@@ -188,7 +188,7 @@ end
         str = '' if $VERBOSE
         alternative = Alternative.new.register(@bd).register(@bd).register(@bd)
         alternative.make_cells_to_exclude
-        Board::NumRange.each do |num|
+        Board::NUM_RANGE.each do |num|
             @bd.nine_nums.each do |nine_num|
                 next if nine_num.have?(num)
                 ok_cells = nine_num.cells_can_be(num) - alternative.cells_to_exclude(num)

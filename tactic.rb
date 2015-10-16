@@ -104,7 +104,7 @@ class Tactics
     def tactic_2_only_cell_in_nn
         done = Array.new
         nine_nums = @bd.nine_nums
-        Board::NumRange.each do |num|
+        Board::NUM_RANGE.each do |num|
             #select NineNum that doesn't include num yet
             nine_nums.each do |nn| 
                 next if nn.have?(num)
@@ -123,7 +123,7 @@ class Tactics
     end
     def tactic_3_all_canbe_in_row_or_col
         done = []
-        Board::NumRange.each do |num|
+        Board::NUM_RANGE.each do |num|
             ### choose dame_cells ###
             dame_cells = []
             @bd.boxes.each do |box|
@@ -217,7 +217,7 @@ class Tactics
         
         ### fill empty_cells (only-cell-in-nn)
         #str = "          set" if $VERBOSE
-        Board::NumRange.each do |num|
+        Board::NUM_RANGE.each do |num|
             @bd.nine_nums.each do |nn| 
                 next if nn.have?(num) #try nine_num that has not num
                 next if not complement.pairs(nn, num).empty?

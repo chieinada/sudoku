@@ -59,7 +59,7 @@ class Problem < Array
             end
         end
         arr.flatten!
-        raise("wrong file format. wrong number of cells(#{arr.length} cells) in #{fname}") if arr.length != Board::Width**2
+        raise("wrong file format. wrong number of cells(#{arr.length} cells) in #{fname}") if arr.length != Board::WIDTH**2
         problem = self.new(arr, cmts)
         return problem
     end

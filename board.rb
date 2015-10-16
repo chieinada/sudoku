@@ -10,21 +10,21 @@
 #  modified: inspect
 #  added: can_be
 class Board < Object
-  Width = 9
-  XYRange = (0..Width-1)
-  NumRange = (1..Width)    
+  WIDTH = 9
+  XY_RANGE = (0..WIDTH-1)
+  NUM_RANGE = (1..WIDTH)    
   def initialize
       #create empty board
     @comments = ""
-    @cells = Array.new(Width**2) {|idx| Cell.new(idx%Width, idx/Width) }
-    @rows =    Array.new(Width) {|idx| NineNum.new }
-    @columns = Array.new(Width) {|idx| NineNum.new }
-    @boxes =   Array.new(Width) {|idx| NineNum.new }
+    @cells = Array.new(WIDTH**2) {|idx| Cell.new(idx%WIDTH, idx/WIDTH) }
+    @rows =    Array.new(WIDTH) {|idx| NineNum.new }
+    @columns = Array.new(WIDTH) {|idx| NineNum.new }
+    @boxes =   Array.new(WIDTH) {|idx| NineNum.new }
     #link rows and cells each other
-    Width.times do |y|
+    WIDTH.times do |y|
       row = @rows[y]
-      Width.times do |idx| 
-        cell = @cells[idx + y * Width]
+      WIDTH.times do |idx| 
+        cell = @cells[idx + y * WIDTH]
         if not(row << cell)
           raise("same cell inserted @rows[#{y}], idx=#{idx}")
         end
@@ -33,10 +33,10 @@ class Board < Object
     end
         
     #link columns and cells each other
-    Width.times do |x|
+    WIDTH.times do |x|
       column = @columns[x]
-      Width.times do |idx|
-        cell = @cells[x + idx * Width]
+      WIDTH.times do |idx|
+        cell = @cells[x + idx * WIDTH]
         if not(column << cell)
           raise("same cell inserted @columns[#{x}], idx=#{idx}")
         end
@@ -45,7 +45,7 @@ class Board < Object
     end
 
     #link boxes and cells each other
-    Width.times do |box_no|
+    WIDTH.times do |box_no|
       box = @boxes[box_no]
       box_x = box_no / 3
       box_y = box_no % 3
@@ -65,13 +65,13 @@ class Board < Object
   def load_problem(problem)
     #problem: Problem object containing 
     #       an Array of 81 single-character strings /^[1-9]$/ or '-'
-    raise("problem has wrong number of cells: #{problem.length} cells") if problem.length != Width**2
+    raise("problem has wrong number of cells: #{problem.length} cells") if problem.length != WIDTH**2
     
     @comments = problem.comments    
     problem.each_index do |idx|
         num = problem[idx].to_i
         if num != 0
-            x, y = idx % Width, idx / Width
+            x, y = idx % WIDTH, idx / WIDTH
             given = true
             cell = cell(x, y).set(num, given)
             if !cell
@@ -83,7 +83,7 @@ class Board < Object
     if !$SILENT || $RESULT
         puts "\n"+comments
         puts to_s
-        puts "#{Board::Width**2-empty_cells.length} cells given"+"\n"
+        puts "#{Board::WIDTH**2-empty_cells.length} cells given"+"\n"
     end
     return self
   end
@@ -101,28 +101,28 @@ end
   def inspect
     #@cells.collect {|cell| cell.inspect}.to_s
     str = ""
-    Width.times do |y| 
-      Width.times {|x| str += cell(x,y).inspect + " "}
+    WIDTH.times do |y| 
+      WIDTH.times {|x| str += cell(x,y).inspect + " "}
       str += "\n"
     end
     return str
   end
   def to_s
     str = ""
-    Width.times do |y| 
-      Width.times {|x| str+= cell(x,y).to_s+" " }
+    WIDTH.times do |y| 
+      WIDTH.times {|x| str+= cell(x,y).to_s+" " }
       str += "\n"
     end
     return str
   end
   def cell(x, y)
-    #x, y: Fixnum, (0 <= x, y < Width)
+    #x, y: Fixnum, (0 <= x, y < WIDTH)
     #return: Cell or nil
     x_i, y_i = x.to_i, y.to_i
-    raise(ArgumentError,"Out of range x=#{x}") if not XYRange.include? x_i
-    raise(ArgumentError,"Out of range y=#{y}") if not XYRange.include? y_i
+    raise(ArgumentError,"Out of range x=#{x}") if not XY_RANGE.include? x_i
+    raise(ArgumentError,"Out of range y=#{y}") if not XY_RANGE.include? y_i
         
-    return @cells[x_i + y_i * Width]
+    return @cells[x_i + y_i * WIDTH]
   end
   def nine_nums
     return @rows+@columns+@boxes
@@ -136,7 +136,7 @@ end
 
 class NineNum
   def initialize()
-    @cells = [] #max length == Board::Width
+    @cells = [] #max length == Board::WIDTH
   end
   attr_reader :cells
   def to_s
@@ -181,14 +181,14 @@ class NineNum
       #true/false
     return false if !num
     num_i = num.to_i
-    raise(ArgumentError, "Out of range: num(#{num})") if not Board::NumRange.include? num_i
+    raise(ArgumentError, "Out of range: num(#{num})") if not Board::NUM_RANGE.include? num_i
     
     return @cells.any? {|cell| cell.num == num_i}
   end
   def <<(new_cell)        
     #return: nil/self
     ### need type check for cell?
-    if @cells.length >= Board::Width
+    if @cells.length >= Board::WIDTH
       raise("too many cells pushed (@cells.length=#@cells.length)") 
     end
     @cells.each {|cell| raise("same cell pushed") if cell.equal? new_cell}
@@ -208,7 +208,7 @@ end
 class Cell
   def initialize(x,y)
     @x,@y = x,y
-    @num=nil         #nil or 1-Board::Width(=9)(Fixnum)
+    @num=nil         #nil or 1-Board::WIDTH(=9)(Fixnum)
     @given=false    #true/false
     @row = @column = @box = nil
     #set_row(),set_column(),set_box() must be called before use
@@ -269,15 +269,15 @@ class Cell
     #When cell is given cell, only [@num] is returned
     
     return [@num] if given?
-    return Board::NumRange.to_a - @row.i_have - @column.i_have - @box.i_have
+    return Board::NUM_RANGE.to_a - @row.i_have - @column.i_have - @box.i_have
   end
   def set(num,given=false)
-    #num: Fixnum (1 <= num <= Board::Width)  (can't be nil) 
+    #num: Fixnum (1 <= num <= Board::WIDTH)  (can't be nil) 
     #given: true/false
     #return: self/nil
 
     num_i = num.to_i
-    raise(ArgumentError, "Invalid num: (num=#{num.inspect})") if not(Board::NumRange.include? num_i)
+    raise(ArgumentError, "Invalid num: (num=#{num.inspect})") if not(Board::NUM_RANGE.include? num_i)
     raise(RuntimeError, "Not linked with NineNum") if !@row || !@column || !@box
     
     #can't modify given cell
