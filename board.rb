@@ -9,24 +9,27 @@
 #  added: @x, @y
 #  modified: inspect
 #  added: can_be
-class Board < Object
+
+class Board 
   WIDTH = 9
   XY_RANGE = (0..WIDTH-1)
-  NUM_RANGE = (1..WIDTH)    
+  NUM_RANGE = (1..WIDTH)
+
   def initialize
-      #create empty board
+    #create empty board
     @comments = ""
     @cells = Array.new(WIDTH**2) {|idx| Cell.new(idx%WIDTH, idx/WIDTH) }
     @rows =    Array.new(WIDTH) {|idx| NineNum.new }
     @columns = Array.new(WIDTH) {|idx| NineNum.new }
     @boxes =   Array.new(WIDTH) {|idx| NineNum.new }
+
     #link rows and cells each other
     WIDTH.times do |y|
       row = @rows[y]
       WIDTH.times do |idx| 
         cell = @cells[idx + y * WIDTH]
-        if not(row << cell)
-          raise("same cell inserted @rows[#{y}], idx=#{idx}")
+        unless row << cell
+          raise "same cell inserted @rows[#{y}], idx=#{idx}"
         end
         cell.set_row(row)
       end
@@ -37,10 +40,10 @@ class Board < Object
       column = @columns[x]
       WIDTH.times do |idx|
         cell = @cells[x + idx * WIDTH]
-        if not(column << cell)
-          raise("same cell inserted @columns[#{x}], idx=#{idx}")
+        unless column << cell
+          raise "same cell inserted @columns[#{x}], idx=#{idx}"
         end
-        cell.set_column(column)#
+        cell.set_column(column)
       end
     end
 
@@ -49,23 +52,26 @@ class Board < Object
       box = @boxes[box_no]
       box_x = box_no / 3
       box_y = box_no % 3
+
       3.times do |y|
         3.times do |x|
           cell = @cells[(x+box_x*3) + (y+box_y*3) * 9]
-          if not(box << cell)
-            raise("same cell inserted @boxes[#{box_no}], (x,y)=(#{x},#{y})")
+          unless(box << cell)
+            raise "same cell inserted @boxes[#{box_no}], (x,y)=(#{x},#{y})"
           end
           cell.set_box(box)
         end
       end
     end
   end
+
   attr_reader :comments
   attr_reader :cells, :boxes, :rows, :columns
+  
   def load_problem(problem)
     #problem: Problem object containing 
     #       an Array of 81 single-character strings /^[1-9]$/ or '-'
-    raise("problem has wrong number of cells: #{problem.length} cells") if problem.length != WIDTH**2
+    raise "problem has wrong number of cells: #{problem.length} cells" if problem.length != WIDTH**2
     
     @comments = problem.comments    
     problem.each_index do |idx|
@@ -76,7 +82,7 @@ class Board < Object
             cell = cell(x, y).set(num, given)
             if !cell
                 self.inspect
-                raise("can't set cell: (x,y,num,given)=(#{x},#{y},#{num},#{given}" ) 
+                raise "can't set cell: (x,y,num,given)=(#{x},#{y},#{num},#{given})"
             end
         end
     end
@@ -119,8 +125,8 @@ end
     #x, y: Fixnum, (0 <= x, y < WIDTH)
     #return: Cell or nil
     x_i, y_i = x.to_i, y.to_i
-    raise(ArgumentError,"Out of range x=#{x}") if not XY_RANGE.include? x_i
-    raise(ArgumentError,"Out of range y=#{y}") if not XY_RANGE.include? y_i
+    raise ArgumentError,"Out of range x=#{x}" unless XY_RANGE.include? x_i
+    raise ArgumentError,"Out of range y=#{y}" unless XY_RANGE.include? y_i
         
     return @cells[x_i + y_i * WIDTH]
   end
@@ -181,7 +187,7 @@ class NineNum
       #true/false
     return false if !num
     num_i = num.to_i
-    raise(ArgumentError, "Out of range: num(#{num})") if not Board::NUM_RANGE.include? num_i
+    raise ArgumentError, "Out of range: num(#{num})" unless Board::NUM_RANGE.include? num_i
     
     return @cells.any? {|cell| cell.num == num_i}
   end
@@ -189,12 +195,12 @@ class NineNum
     #return: nil/self
     ### need type check for cell?
     if @cells.length >= Board::WIDTH
-      raise("too many cells pushed (@cells.length=#@cells.length)") 
+      raise "too many cells pushed (@cells.length=#@cells.length)" 
     end
-    @cells.each {|cell| raise("same cell pushed") if cell.equal? new_cell}
+    @cells.each {|cell| raise "same cell pushed" if cell.equal? new_cell}
     
     new_num = new_cell.num  
-    if (have?(new_num))
+    if have?(new_num)
       return nil
     else #I don't have it!
       @cells << new_cell
@@ -215,15 +221,15 @@ class Cell
   end
   attr_reader :num, :row, :column, :box, :x, :y
   def set_row(row)
-    raise("set_row called twice for same cell") if @row != nil
+    raise "set_row called twice for same cell" if @row != nil
     @row = row
   end
   def set_column(column)
-    raise("set_column called twice for same cell") if @column != nil
+    raise "set_column called twice for same cell" if @column != nil
     @column = column
   end
   def set_box(box)
-    raise("set_box called twice for same cell") if @box != nil
+    raise "set_box called twice for same cell" if @box != nil
     @box = box
   end
   def nine_nums
@@ -277,8 +283,8 @@ class Cell
     #return: self/nil
 
     num_i = num.to_i
-    raise(ArgumentError, "Invalid num: (num=#{num.inspect})") if not(Board::NUM_RANGE.include? num_i)
-    raise(RuntimeError, "Not linked with NineNum") if !@row || !@column || !@box
+    raise ArgumentError, "Invalid num: (num=#{num.inspect})" unless Board::NUM_RANGE.include? num_i
+    raise RuntimeError, "Not linked with NineNum" if !@row || !@column || !@box
     
     #can't modify given cell
     return nil if @given 
