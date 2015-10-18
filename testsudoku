@@ -1,0 +1,7 @@
+#!/bin/bash
+ruby sudoku.rb sdk/*.sdk >/tmp/sdk.log
+ruby sudoku.rb sdk/mod/*.sdk >/tmp/mod.log
+diff ./log/sdk.log /tmp/sdk.log >/tmp/sdk.diff
+diff ./log/mod.log /tmp/mod.log >/tmp/mod.diff
+cat /tmp/sdk.diff
+cat /tmp/mod.diff
