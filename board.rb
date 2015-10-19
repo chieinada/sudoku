@@ -28,7 +28,7 @@ class Board
       row = @rows[y]
       WIDTH.times do |idx| 
         cell = @cells[idx + y * WIDTH]
-        unless row << cell
+        unless row.append_cell(cell)
           raise "same cell inserted @rows[#{y}], idx=#{idx}"
         end
         cell.set_row(row)
@@ -40,7 +40,7 @@ class Board
       column = @columns[x]
       WIDTH.times do |idx|
         cell = @cells[x + idx * WIDTH]
-        unless column << cell
+        unless column.append_cell(cell)
           raise "same cell inserted @columns[#{x}], idx=#{idx}"
         end
         cell.set_column(column)
@@ -56,7 +56,7 @@ class Board
       3.times do |y|
         3.times do |x|
           cell = @cells[(x+box_x*3) + (y+box_y*3) * 9]
-          unless(box << cell)
+          unless box.append_cell(cell)
             raise "same cell inserted @boxes[#{box_no}], (x,y)=(#{x},#{y})"
           end
           cell.set_box(box)
@@ -191,13 +191,16 @@ class NineNum
     
     return @cells.any? {|cell| cell.num == num_i}
   end
-  def <<(new_cell)        
+  def append_cell(new_cell)        
     #return: nil/self
-    ### need type check for cell?
+    if new_cell.class.name != "Cell"
+      raise ArgumentError, "Wrong argument type: #{new_cell.class.name}. Cell expected." 
+    end
+   
     if @cells.length >= Board::WIDTH
       raise "too many cells pushed (@cells.length=#@cells.length)" 
     end
-    @cells.each {|cell| raise "same cell pushed" if cell.equal? new_cell}
+    @cells.each {|cell| raise "same cell pushed" if cell.equal?(new_cell)}
     
     new_num = new_cell.num  
     if have?(new_num)
